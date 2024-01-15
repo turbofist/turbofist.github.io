@@ -1,0 +1,18 @@
+@import url('https://github.com/ngarces/FE15-Text-Simulator/blob/master/FOT-ChiaroStd-B.otf');
+@font-face {
+    font-family: fot-chiaro_stdb;
+    src: url('https://github.com/ngarces/FE15-Text-Simulator/blob/master/FOT-ChiaroStd-B.otf') format("opentype");
+}
+
+.rectangle {
+    height: 180px;
+    width: 600px;
+    background-color: #555;
+  border-radius: 20px;
+}
+#output {
+  text-align: center;
+  font-size: 30px;
+  font-family: 'fot-chiaro_stdb', Arial;
+  color: white;
+}
