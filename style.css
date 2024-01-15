@@ -33,3 +33,20 @@
   padding-bottom: 8px;
   padding-top: 14px;
 }
+#arrow{
+  margin-left:-24px;
+}
+.boxbreak{
+  background-color: #555;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  display: block;
+  padding-top: 30px;
+  padding-left: 24px;
+  padding-bottom: 24px;
+  text-align: center;
+  font-size: 24px;
+  font-family: 'fot-chiaro_stdb', Arial;
+  text-align: left;
+  white-space: pre-wrap;
+}
