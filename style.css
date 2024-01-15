@@ -15,7 +15,9 @@
   margin: auto;
   width: 50%;
 }
-
+.red{
+  color: red;
+}
 #output {
   text-align: center;
   font-size: 24px;
