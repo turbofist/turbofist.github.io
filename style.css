@@ -1,7 +1,7 @@
-@import url('https://github.com/ngarces/FE15-Text-Simulator/blob/master/FOT-ChiaroStd-B.otf');
+@import url('https://github.com/ngarces/FE15-Text-Simulator/raw/master/FOT-ChiaroStd-B.otf');
 @font-face {
     font-family: fot-chiaro_stdb;
-    src: url('https://github.com/ngarces/FE15-Text-Simulator/blob/master/FOT-ChiaroStd-B.otf') format("opentype");
+    src: url('https://github.com/ngarces/FE15-Text-Simulator/raw/master/FOT-ChiaroStd-B.otf') format("opentype");
 }
 
 .rectangle {
