@@ -1,5 +1,7 @@
 var input = document.getElementById("input");
-input.addEventListener("keyup", updateText);
+if(input){
+  input.addEventListener("keyup", updateText);
+}
 var output = document.getElementById("output");
 var mapObj = {
   "COLOR(RED)":"<a style='color:red'>",
