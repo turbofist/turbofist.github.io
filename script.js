@@ -19,7 +19,8 @@ var mapObj = {
   "\"":""
 };
 function updateText(){
-  document.getElementById("output").innerHTML = input.value;
+  if(input.value)
+    document.getElementById("output").innerHTML = input.value;
   input.value = input.value.replace(/\n/g, '');
   document.getElementById("output").innerHTML = input.value.replace(/COLOR\(RED\)|COLOR\(DEFAULT\)|COLOR\(DEFAULT\)|COLOR\(ADJUSTABLE\)|COLOR\(BLUE\)|COLOR\(LIGHTBLUE\)|COLOR\(PURPLE\)|COLOR\(YELLOW\)|COLOR\(BLACK\)|TWO_CHOICE|QUICKTEXT_ENABLE|QUICKTEXT_DISABLE|\\n|\"/gi, function(matched){return mapObj[matched]});
 }
