@@ -5,14 +5,29 @@
 }
 
 .rectangle {
-    height: 180px;
-    width: 600px;
+    height: 120px;
+    width: 460px;
     background-color: #555;
   border-radius: 20px;
+  margin: auto;
 }
+.textinput{
+  margin: auto;
+  width: 50%;
+}
+
 #output {
   text-align: center;
-  font-size: 30px;
+  font-size: 24px;
   font-family: 'fot-chiaro_stdb', Arial;
   color: white;
+  text-align: left;
+  padding-top: 20px;
+  padding-left: 50px;
+  white-space: pre-wrap;
+  word-spacing: 5px;
+  padding-left: 64px;
+  padding-right: 12px;
+  padding-bottom: 8px;
+  padding-top: 14px;
 }
