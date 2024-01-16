@@ -19,6 +19,13 @@ body{
   margin-bottom: -10px;
   width: 40px;
 }
+.warning{
+  font-family: 'fot-chiaro_stdb';
+  color: #AAA;
+  font-size: 10px;
+  bottom: 0;
+  left: 0;
+}
 .rectangle {
     height: 120px;
     width: 420px;
@@ -69,7 +76,6 @@ textarea{
   color: #AAA;
   resize: none;
   border-bottom: 3px;
-  float: left;
   bottom: 0;
   left: 0;
 }
