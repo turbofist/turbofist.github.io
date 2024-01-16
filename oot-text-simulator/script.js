@@ -151,6 +151,7 @@ function updateText(){
     .replace(/\s*COLOR\(BLACK\)\s*/gi, '<a style=\'color:black\'> ')
     .replace(/\s*TEXTBOX_TYPE_BLACK,\s*/gi, '<div id="TEXTBOX_TYPE_BLACK"></div>')
     .replace(/\s*TEXTBOX_TYPE_BLUE,\s*/gi, '<div id="TEXTBOX_TYPE_BLUE"></div>')
+    .replace(/\s*TEXTBOX_TYPE_WOODEN,\s*/gi, '<div id="TEXTBOX_TYPE_WOODEN"></div>')
     .replace(/\s*TEXTBOX_POS_TOP,\s*/gi, '<div id="TEXTBOX_POS_TOP"></div>')
     .replace(/\s*TEXTBOX_POS_MIDDLE,\s*/gi, '<div id="TEXTBOX_POS_MIDDLE"></div>')
     .replace(/\s*TEXTBOX_POS_BOTTOM,\s*/gi, '<div id="TEXTBOX_POS_BOTTOM"></div>')
@@ -165,6 +166,9 @@ function updateText(){
   }
   else if($("#TEXTBOX_TYPE_BLUE").length){
     $("#output").css("background-color", "rgb\(0 0 136 \/10\%\)");
+  }
+  else if($("#TEXTBOX_TYPE_WOODEN").length){
+    $("#output").css("background-color", "rgb\(153 119 86 \/60\%\)");
   }
   if($("#TEXTBOX_POS_TOP").length){
     $("#output").css("border-top", "2px solid #444");
