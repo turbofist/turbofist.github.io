@@ -11,16 +11,22 @@
     border-radius: 20px;
     margin: auto;
 }
-.textinput{
-  margin: auto;
-  width: 50%;
+textarea{
+  width: 400px;
+  height: 150px;
+  font-size: 12px;
+  font-family: Monospace;
+  border-radius: 20px;
+  background-color: #EEE;
+  resize: none;
 }
 .red{
   color: red;
 }
 #output {
   text-align: center;
-  font-size: 24px;
+  line-height: 28px;
+  font-size: 20px;
   font-family: 'fot-chiaro_stdb', Arial;
   color: white;
   text-align: left;
