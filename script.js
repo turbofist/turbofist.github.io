@@ -43,8 +43,7 @@ function boxBreak(matched,offset,string){
 }
 function codeToIcon(matched,p1,offset,string){
   var n = parseInt(p1, 16);
-  console.log(n);
-  return "";
+  return iconMap[n];
 }
 function updateText(){
   if(input.value)
