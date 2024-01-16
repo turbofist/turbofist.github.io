@@ -133,8 +133,9 @@ function codeToIcon(matched,p1,offset,string){
 function updateText(){
   if(input.value)
     document.getElementById("output").innerHTML = input.value;
-  input.value = input.value.replace(/\n/g, '');
+  //input.value = input.value.replace(/\n/g, '');
   document.getElementById("output").innerHTML = input.value.replace(/TWO_CHOICE|PERSISTENT|\\n|\"/gi, function(matched){return mapObj[matched]})
+    .replace(/\n/g, '')
     .replace(/DEFINE_MESSAGE\(.*? /gi, '')
     .replace(/\s*QUICKTEXT_ENABLE\s*/gi,'')
     .replace(/\s*QUICKTEXT_DISABLE\s*/gi,'')
@@ -151,7 +152,6 @@ function updateText(){
     .replace(/\s*COLOR\(BLACK\)\s*/gi, '<a style=\'color:black\'> ')
     .replace(/\s*TEXTBOX_TYPE_BLACK,\s*/gi, '<div id="TEXTBOX_TYPE_BLACK"></div>')
     .replace(/\s*TEXTBOX_TYPE_BLUE,\s*/gi, '<div id="TEXTBOX_TYPE_BLUE"></div>')
-    .replace(/\s*TEXTBOX_TYPE_WOODEN,\s*/gi, '<div id="TEXTBOX_TYPE_WOODEN"></div>')
     .replace(/\s*TEXTBOX_POS_TOP,\s*/gi, '<div id="TEXTBOX_POS_TOP"></div>')
     .replace(/\s*TEXTBOX_POS_MIDDLE,\s*/gi, '<div id="TEXTBOX_POS_MIDDLE"></div>')
     .replace(/\s*TEXTBOX_POS_BOTTOM,\s*/gi, '<div id="TEXTBOX_POS_BOTTOM"></div>')
@@ -167,16 +167,13 @@ function updateText(){
   else if($("#TEXTBOX_TYPE_BLUE").length){
     $("#output").css("background-color", "rgb\(0 0 136 \/10\%\)");
   }
-  else if($("#TEXTBOX_TYPE_WOODEN").length){
-    $("#output").css("background-color", "rgb\(153 119 86 \/60\%\)");
-  }
   if($("#TEXTBOX_POS_TOP").length){
-    $("#output").css("border-top", "2px solid #444");
+    $("#output").css("border-top", "2px solid white");
   }
   else if($("#TEXTBOX_POS_MIDDLE").length){
-    $("#output").css("border-right", "2px solid #444");
+    $("#output").css("border-right", "2px solid white");
   }
   else if($("#TEXTBOX_POS_BOTTOM").length){
-    $("#output").css("border-bottom", "2px solid #444");
+    $("#output").css("border-bottom", "2px solid white");
   }
 }
