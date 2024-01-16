@@ -15,19 +15,20 @@ var mapObj = {
   "TWO_CHOICE":"➜&nbsp;&nbsp;&nbsp;",
   "QUICKTEXT_ENABLE":"",
   "QUICKTEXT_DISABLE":"",
+  "UNSKIPPABLE":"",
   "PERSISTENT":"",
   "\\n":"<br>",
   "\"":"",
 };
 var iconMap = {
-  28:"<img src=\"img/28.png\">",
-  28:"<img src=\"img/28.png\">",
-  28:"<img src=\"img/28.png\">",
-  28:"<img src=\"img/28.png\">",
-  28:"<img src=\"img/28.png\">",
-  28:"<img src=\"img/28.png\">",
-  28:"<img src=\"img/28.png\">",
-  28:"<img src=\"img/28.png\">"
+  28:"<img class=\"ico\" src=\"img/28.png\">",
+  82:"<img class=\"ico\" src=\"img/82.png\">",
+  28:"<img class=\"ico\" src=\"img/28.png\">",
+  28:"<img class=\"ico\" src=\"img/28.png\">",
+  28:"<img class=\"ico\" src=\"img/28.png\">",
+  28:"<img class=\"ico\" src=\"img/28.png\">",
+  28:"<img class=\"ico\" src=\"img/28.png\">",
+  28:"<img class=\"ico\" src=\"img/28.png\">"
 }
   function replaceShift(matched,p1,offset,string){
     var n = parseInt(p1);
@@ -43,13 +44,14 @@ function boxBreak(matched,offset,string){
 }
 function codeToIcon(matched,p1,offset,string){
   var n = parseInt(p1, 16);
+  console.log(n);
   return iconMap[n];
 }
 function updateText(){
   if(input.value)
     document.getElementById("output").innerHTML = input.value;
   input.value = input.value.replace(/\n/g, '');
-  document.getElementById("output").innerHTML = input.value.replace(/(COLOR\(RED\)|COLOR\(DEFAULT\)|COLOR\(DEFAULT\)|COLOR\(ADJUSTABLE\)|COLOR\(BLUE\)|COLOR\(LIGHTBLUE\)|COLOR\(PURPLE\)|COLOR\(YELLOW\)|COLOR\(BLACK\)|TWO_CHOICE|QUICKTEXT_ENABLE|QUICKTEXT_DISABLE|PERSISTENT|\\n|\")/gi, function(matched){return mapObj[matched]}).replace(/DEFINE_MESSAGE\(.*? /gi, '').replace(/TEXTBOX_TYPE_BLACK, /gi, '<div id="TEXTBOX_TYPE_BLACK"></div>').replace(/TEXTBOX_TYPE_BLUE,/gi, '<div id="TEXTBOX_TYPE_BLUE"></div>').replace(/TEXTBOX_POS_TOP,/gi, '<div id="TEXTBOX_POS_TOP"></div>').replace(/TEXTBOX_POS_MIDDLE,/gi, '<div id="TEXTBOX_POS_MIDDLE"></div>').replace(/TEXTBOX_POS_BOTTOM,/gi, '<div id="TEXTBOX_POS_BOTTOM"></div>').replace(/TEXTBOX_POS_VARIABLE,/gi, '<div id="TEXTBOX_POS_VARIABLE"></div>').replace(/SHIFT\(\\x(..)\)/gi, replaceShift).replace(/BOX_BREAK/gi, boxBreak).replace(/ITEM_ICON\(\\x(..)\)/gi, codeToIcon);
+  document.getElementById("output").innerHTML = input.value.replace(/(COLOR\(RED\)|COLOR\(DEFAULT\)|COLOR\(DEFAULT\)|COLOR\(ADJUSTABLE\)|COLOR\(BLUE\)|COLOR\(LIGHTBLUE\)|COLOR\(PURPLE\)|COLOR\(YELLOW\)|COLOR\(BLACK\)|TWO_CHOICE|UNSKIPPABLE|QUICKTEXT_ENABLE|QUICKTEXT_DISABLE|PERSISTENT|\\n|\")/gi, function(matched){return mapObj[matched]}).replace(/DEFINE_MESSAGE\(.*? /gi, '').replace(/TEXTBOX_TYPE_BLACK, /gi, '<div id="TEXTBOX_TYPE_BLACK"></div>').replace(/TEXTBOX_TYPE_BLUE,/gi, '<div id="TEXTBOX_TYPE_BLUE"></div>').replace(/TEXTBOX_POS_TOP,/gi, '<div id="TEXTBOX_POS_TOP"></div>').replace(/TEXTBOX_POS_MIDDLE,/gi, '<div id="TEXTBOX_POS_MIDDLE"></div>').replace(/TEXTBOX_POS_BOTTOM,/gi, '<div id="TEXTBOX_POS_BOTTOM"></div>').replace(/TEXTBOX_POS_VARIABLE,/gi, '<div id="TEXTBOX_POS_VARIABLE"></div>').replace(/SHIFT\(\\x(..)\)/gi, replaceShift).replace(/BOX_BREAK/gi, boxBreak).replace(/ITEM_ICON\(\\x(..)\)/gi, codeToIcon);
   if($("#TEXTBOX_TYPE_BLACK").length){
     $("#output").css("background-color", "#555");
   }

@@ -23,6 +23,10 @@ textarea{
 .red{
   color: red;
 }
+.ico{
+  width: 28px;
+  height: 28px;
+}
 #output {
   text-align: center;
   line-height: 28px;
