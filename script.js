@@ -156,6 +156,7 @@ function updateText(){
     .replace(/\s*TEXTBOX_POS_BOTTOM,\s*/gi, '<div id="TEXTBOX_POS_BOTTOM"></div>')
     .replace(/\s*TEXTBOX_POS_VARIABLE\s*,/gi, '<div id="TEXTBOX_POS_VARIABLE"></div>')
     .replace(/SHIFT\(\\x(..)\)/gi, replaceShift)
+    .replace(/BOX_BREAK_DELAYED\(.*?\)/gi, boxBreak)
     .replace(/BOX_BREAK/gi, boxBreak)
     .replace(/ITEM_ICON\(\\x(..)\)/gi, codeToIcon)
  .replace(/\[C-Left\]|\[C-Right\]|\[C-Up\]|\[C-Down\]|\[A\]/gi, function(matched){return buttonMap[matched]})
