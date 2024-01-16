@@ -6,13 +6,13 @@
 
 .rectangle {
     height: 120px;
-    width: 460px;
+    width: 420px;
     background-color: #555;
     border-radius: 20px;
     margin: auto;
 }
 textarea{
-  width: 400px;
+  width: 480px;
   height: 150px;
   font-size: 12px;
   font-family: Monospace;
@@ -43,15 +43,18 @@ textarea{
   margin-left:-24px;
 }
 .boxbreak{
+  display: inline-block;
+  overflow: visible;
+  width: 400px;
+  height: 90px;
   background-color: #555;
   border-radius: 20px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  display: block;
-  padding-top: 30px;
-  padding-left: 24px;
+  padding-top: 10px;
+  padding-left: 52px;
   padding-bottom: 24px;
   text-align: center;
-  font-size: 24px;
+  font-size: 18px;
   font-family: 'fot-chiaro_stdb', Arial;
   text-align: left;
   white-space: pre-wrap;
