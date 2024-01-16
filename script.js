@@ -113,6 +113,9 @@ var buttonMap = {
   "\[C-Down\]":"▼",
   "\[C-Right\]":"►"
 }
+function openFaq(){
+  
+}
   function replaceShift(matched,p1,offset,string){
     var n = parseInt(p1, 16);
     var n = Math.floor(p1/4);

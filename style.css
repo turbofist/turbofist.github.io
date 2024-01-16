@@ -6,12 +6,50 @@
 body{
   background-color: #111;
 }
+.faq{
+  color: lightgray;
+  font-family: 'fot-chiaro_stdb';
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  background-color: transparent;
+  border-color: transparent;
+  cursor: pointer;
+  margin-right: 30px;
+  margin-bottom: -10px;
+  width: 40px;
+}
 .rectangle {
     height: 120px;
     width: 420px;
     background-color: #555;
     border-radius: 20px;
     margin: auto;
+  margin-top: 5%;
+}
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #222;
+}
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+#infowindow{
+  color: white;
+  border: none;
+  background-color: #444;
+  font-family: 'fot-chiaro_stdb';
+  font-size: 24px;
+  border-radius: 3px;
+  box-shadow: 2px 2px 2px black;
+  width: 50%;
+  height: 75%;
 }
 textarea{
   width: 480px;
@@ -24,11 +62,12 @@ textarea{
   color: #AAA;
   resize: none;
   border-bottom: 3px;
+  float: left;
 }
 textarea:focus{
   outline: none;
   border: 1px solid gray;
-  box-shadow: 5px 5px 15px gray;
+  box-shadow: 5px 5px 15px black;
 }
 .red{
   color: red;
