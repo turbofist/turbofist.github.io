@@ -3,7 +3,9 @@
     font-family: fot-chiaro_stdb;
     src: url('https://cdn.jsdelivr.net/gh/ngarces/FE15-Text-Simulator/FOT-ChiaroStd-B.otf') format("opentype");
 }
-
+body{
+  background-color: #111;
+}
 .rectangle {
     height: 120px;
     width: 420px;
@@ -14,20 +16,31 @@
 textarea{
   width: 480px;
   height: 150px;
+  padding: 8px 8px 8px 8px;
   font-size: 12px;
   font-family: Monospace;
   border-radius: 20px;
-  background-color: #EEE;
+  background-color: #333;
+  color: #AAA;
   resize: none;
+  border-bottom: 3px;
+}
+textarea:focus{
+  outline: none;
+  border: 1px solid gray;
+  box-shadow: 5px 5px 15px gray;
 }
 .red{
   color: red;
 }
 .ico{
-  width: 28px;
-  height: 28px;
+  width: 64px;
+  height: 64px;
   float:left;
-  margin-top: -12px;
+  margin-top: 20px;
+  margin-left: -35px;
+  padding-right: 16px;
+  padding-bottom: 40px;
 }
 #output {
   vertical-align: top;
@@ -54,7 +67,7 @@ textarea{
   overflow: visible;
   width: 400px;
   height: 90px;
-  background-color: #555;
+  background-color: rgb(85 85 85 10%);
   border-radius: 20px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   padding-top: 10px;
