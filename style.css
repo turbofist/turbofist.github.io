@@ -26,8 +26,11 @@ textarea{
 .ico{
   width: 28px;
   height: 28px;
+  float:left;
+  margin-top: -12px;
 }
 #output {
+  vertical-align: top;
   text-align: center;
   line-height: 28px;
   font-size: 20px;
