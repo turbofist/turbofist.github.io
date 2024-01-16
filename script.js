@@ -134,10 +134,13 @@ function updateText(){
   if(input.value)
     document.getElementById("output").innerHTML = input.value;
   input.value = input.value.replace(/\n/g, '');
-  document.getElementById("output").innerHTML = input.value.replace(/TWO_CHOICE|UNSKIPPABLE|PERSISTENT|\\n|\"/gi, function(matched){return mapObj[matched]})
+  document.getElementById("output").innerHTML = input.value.replace(/TWO_CHOICE|PERSISTENT|\\n|\"/gi, function(matched){return mapObj[matched]})
     .replace(/DEFINE_MESSAGE\(.*? /gi, '')
     .replace(/\s*QUICKTEXT_ENABLE\s*/gi,'')
     .replace(/\s*QUICKTEXT_DISABLE\s*/gi,'')
+    .replace(/\s*UNSKIPPABLE\s*/gi,'')
+    .replace(/\s*EVENT\s*/gi,'')
+    .replace(/\s*SFX\(.*?\)\s*/gi,'')
     .replace(/\s*COLOR\(RED\)\s*/gi, '<a style=\'color:red\'> ')
     .replace(/\s*COLOR\(DEFAULT\)\s*/gi, '<a style=\'color:white\'> ')
     .replace(/\s*COLOR\(ADJUSTABLE\)\s*/gi, '<a style=\'color:green\'> ')
