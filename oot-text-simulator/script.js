@@ -167,12 +167,12 @@ function updateText(){
     $("#output").css("background-color", "rgb\(0 0 136 \/10\%\)");
   }
   if($("#TEXTBOX_POS_TOP").length){
-    $("#output").css("box-shadow", "0px -3px white");
+    $("#output").css("border-top", "2px solid white");
   }
   else if($("#TEXTBOX_POS_MIDDLE").length){
-    $("#output").css("box-shadow", "3px 0px white");
+    $("#output").css("border-right", "2px solid white");
   }
   else if($("#TEXTBOX_POS_BOTTOM").length){
-    $("#output").css("box-shadow", "0px 3px white");
+    $("#output").css("border-bottom", "2px solid white");
   }
 }
