@@ -101,8 +101,8 @@ body{
   padding-top: 14px;
   position: fixed;
   text-wrap: nowrap;
-  height: 120px;
-  width: 420px;
+  height: 170px;
+  width: 520px;
   background-color: #555;
   border-radius: 20px;
 }
@@ -152,7 +152,7 @@ body{
   font-family: 'fot-chiaro_stdb';
   font-size: 14px;
   max-width: 600px;
-  max-height: 650px;
+  max-height: 600px;
   vertical-align: top;
   padding-top: 0px;
   padding-left: 5px;

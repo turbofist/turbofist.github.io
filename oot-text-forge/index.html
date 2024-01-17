@@ -1,7 +1,7 @@
 <html>
   <head>
     <link rel="stylesheet" href="style.css">
-    <title>OoT Text Simulator - Alpha</title>
+    <title>OoT Text Forge - Alpha</title>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
   </head>
   <body>
@@ -10,6 +10,32 @@
     <div id="commandListWindow" style="display: none">
       <h1>Command list</h1>
       <hr>
+      <h2>Scripting commands:</h2>
+      <p>$[COLOR] - Colors all the text after this command the specified color, available colors:</p>
+      <ul>
+        <li>R - Red</li>
+        <li>W - White</li>
+        <li>G - Green</li>
+        <li>B - Blue</li>
+        <li>L - Light blue</li>
+        <li>Y - Yellow</li>
+        <li>P - Purple</li>
+        <li>BL - Black</li>
+      </ul>
+      <hr>
+      <p>#[COMMAND] - Does various command-related things:</p>
+      <ul>
+        <li>B - Box break, creates a new text box.</li>
+        <li>QE - Quicktext enable.</li>
+        <li>QD - Quicktext disable.</li>
+        <li>PE - Persistent.</li>
+        <li>E - Event.</li>
+        <li>S [XX] - Shifts characters to the right. XX is a hexadecimal number between 00-FF.</li>
+        <li>SFX [XX] - Sound effect command, works in game, not in-tool.</li>
+        <li>I [XX] - Icon tag, displays the icon associated with the icon ID XX in hexadecimal.</li>
+        <li>U - Unskippable.</li>
+        <li>More coming soon!</li>
+      </ul>
       <h3>COLOR(color)</h3>
       <p>The COLOR command is used in conjunction with any<br>of the available colors to color all text after the command.</p>
       <h3>DEFINE_MESSAGE(textId, type, yPos, nesMessage, gerMessage, fraMessage)</h3>
@@ -75,7 +101,7 @@ BOX_BREAK
 "sie sich leisten." EVENT</code></pre>
       </div>
     </div>
-    <textarea id="otherinput" onkeyup="updateEditText()"></textarea>
+    <textarea id="otherinput" placeholder="Script input" onkeyup="updateEditText()"></textarea>
     <div id="outputcollection">
       <button id="copybutton" onclick="copyToClipboard()">Copy code</button>
       <div id="inputdiv">
@@ -92,10 +118,9 @@ BOX_BREAK
           <option value="variable">Variable</option>
         </select>
         </div>
-    <textarea id="codeoutput" onkeyup=""></textarea>
+    <textarea id="codeoutput" placeholder="Code input/output" onkeyup=""></textarea>
   <div class="rectangle" id="defineoutput"></div>
   </div>
-    <div class="textinput"><textarea id="input" placeholder="Code here..." onkeyup="updateEditText()"></textarea></div>
   <div class="warning"><p>Do <b style="color: red">NOT</b> paste anything that isn't either written by you or taken from decomp's message_data.h in the input field, this could possibly result in unwanted behaviour.</p></div>
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <script src="script.js"></script>
