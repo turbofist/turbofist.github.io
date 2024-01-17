@@ -244,7 +244,7 @@ function codeToScript(){
     .replace(/COLOR\(BLACK\)/gi, '$BL')
     .replace(/UNSKIPPABLE/gi, '#U')
     .replace(/EVENT/gi, '#E')
-    .replace(/ BOX_BREAK/gi, '#B\n')
+    .replace(/BOX_BREAK /gi, '#B\n')
     .replace(/QUICKTEXT_ENABLE/g, '#QE')
     .replace(/QUICKTEXT_DISABLE/g, '#QD')
     .replace(/PERSISTENT/g, '#PE')
