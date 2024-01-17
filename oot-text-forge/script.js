@@ -208,7 +208,7 @@ function updateEditText(){
   var scriptInput = document.getElementById("otherinput");
   var codeOutput = document.getElementById("codeoutput");
   codeOutput.value = scriptInput.value
-  .replace(/#B\n/g, 'BOX_BREAK')
+  .replace(/#B\n/g, 'BOX_BREAK ')
     .replace(/\$R/g, 'COLOR\(RED\)')
     .replace(/\$G/g, 'COLOR\(ADJUSTABLE\)')
     .replace(/\$B/g, 'COLOR\(BLUE\)')
@@ -244,7 +244,7 @@ function codeToScript(){
     .replace(/COLOR\(BLACK\)/gi, '$BL')
     .replace(/UNSKIPPABLE/gi, '#U')
     .replace(/EVENT/gi, '#E')
-    .replace(/BOX_BREAK/gi, '#B\n')
+    .replace(/ BOX_BREAK/gi, '#B\n')
     .replace(/QUICKTEXT_ENABLE/g, '#QE')
     .replace(/QUICKTEXT_DISABLE/g, '#QD')
     .replace(/PERSISTENT/g, '#PE')
