@@ -113,6 +113,23 @@ var buttonMap = {
   "\[C-Down\]":"▼",
   "\[C-Right\]":"►"
 }
+function toggleCommandList(){
+  var div = document.getElementById("commandListWindow");
+  if(div.style.display == "none"){
+    div.style.display == "inline-block";
+  }else{
+    div.style.display == "none";
+  }
+}
+
+function showColorInfo(){
+  var div = $("commandListWindow");
+  if(div.style.display == "none"){
+    div.style.display == "block";
+  }else{
+    div.style.display == "none";
+  }
+}
   function replaceShift(matched,p1,offset,string){
     var n = parseInt(p1, 16);
     var n = Math.floor(n/5)-1;
@@ -134,22 +151,23 @@ function updateText(){
   if(input.value)
     document.getElementById("output").innerHTML = input.value;
   //input.value = input.value.replace(/\n/g, '');
-  document.getElementById("output").innerHTML = input.value.replace(/TWO_CHOICE|PERSISTENT|\\n|\"/gi, function(matched){return mapObj[matched]})
+  document.getElementById("output").innerHTML = input.value.replace(/TWO_CHOICE|PERSISTENT|\\n/gi, function(matched){return mapObj[matched]})
     .replace(/\n/g, '')
+    .replace(/\s*COLOR\(RED\)\s*/gi, '<a style=\'color:red\'>')
+    .replace(/\s*COLOR\(DEFAULT\)\s*/gi, '<a style=\'color:white\'>')
+    .replace(/\s*COLOR\(ADJUSTABLE\)\s*/gi, '<a style=\'color:green\'>')
+    .replace(/\s*COLOR\(BLUE\)\s*/gi, '<a style=\'color:blue\'>')
+    .replace(/\s*COLOR\(LIGHTBLUE\)\s*/gi, '<a style=\'color:lightblue\'>')
+    .replace(/\s*COLOR\(PURPLE\)\s*/gi, '<a style=\'color:purple\'>')
+    .replace(/\s*COLOR\(YELLOW\)\s*/gi, '<a style=\'color:yellow\'>')
+    .replace(/\s*COLOR\(BLACK\)\s*/gi, '<a style=\'color:black\'>')
+    .replace(/\"/g, '')
     .replace(/DEFINE_MESSAGE\(.*? /gi, '')
     .replace(/\s*QUICKTEXT_ENABLE\s*/gi,'')
     .replace(/\s*QUICKTEXT_DISABLE\s*/gi,'')
     .replace(/\s*UNSKIPPABLE\s*/gi,'')
     .replace(/\s*EVENT\s*/gi,'')
     .replace(/\s*SFX\(.*?\)\s*/gi,'')
-    .replace(/\s*COLOR\(RED\)\s*/gi, '<a style=\'color:red\'> ')
-    .replace(/\s*COLOR\(DEFAULT\)\s*/gi, '<a style=\'color:white\'> ')
-    .replace(/\s*COLOR\(ADJUSTABLE\)\s*/gi, '<a style=\'color:green\'> ')
-    .replace(/\s*COLOR\(BLUE\)\s*/gi, '<a style=\'color:blue\'> ')
-    .replace(/\s*COLOR\(LIGHTBLUE\)\s*/gi, '<a style=\'color:lightblue\'> ')
-    .replace(/\s*COLOR\(PURPLE\)\s*/gi, '<a style=\'color:purple\'> ')
-    .replace(/\s*COLOR\(YELLOW\)\s*/gi, '<a style=\'color:yellow\'> ')
-    .replace(/\s*COLOR\(BLACK\)\s*/gi, '<a style=\'color:black\'> ')
     .replace(/\s*TEXTBOX_TYPE_BLACK,\s*/gi, '<div id="TEXTBOX_TYPE_BLACK"></div>')
     .replace(/\s*TEXTBOX_TYPE_BLUE,\s*/gi, '<div id="TEXTBOX_TYPE_BLUE"></div>')
     .replace(/\s*TEXTBOX_POS_TOP,\s*/gi, '<div id="TEXTBOX_POS_TOP"></div>')
