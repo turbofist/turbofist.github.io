@@ -11,22 +11,17 @@ body{
   left: 0;
   background-color: #333;
   color: white;
-  display: inline-block;
+  display: none;
   font-family: 'fot-chiaro_stdb';
   font-size: 14px;
   max-width: 600px;
+  max-height: 650px;
   vertical-align: top;
   padding-top: 0px;
   padding-left: 5px;
   padding-right: 8px;
   border-radius: 15px;
-}
-#infoColorButton{
-  background-color: transparent;
-  border: none;
-  font-family: 'fot-chiaro_stdb';
-  color: #DDD;
-  cursor: pointer;
+  overflow: auto;
 }
 #commandListButton{
   background-color: #333;
@@ -38,6 +33,7 @@ body{
   width: 40px;
   height: 40px;
   cursor: pointer;
+  padding-right: 30px;
 }
 #commandListButton:hover{
   background-color: #222;
@@ -46,6 +42,7 @@ body{
 #commandListButton h1{
   font-size: 24px;
   margin-top: 8px;
+  margin-left: 2px;
 }
 #commandListButton:hover h1{
   color: #EEE;
@@ -160,7 +157,7 @@ textarea:focus{
   padding-right: 12px;
   padding-bottom: 8px;
   padding-top: 14px;
-  margin-left: 30px;
+  margin-left: 48px;
   position: absolute;
 }
 #arrow{
