@@ -246,12 +246,14 @@ function codeToScript(){
     .replace(/COLOR\(YELLOW\)/gi, '$Y')
     .replace(/COLOR\(BLACK\)/gi, '$BL')
     .replace(/UNSKIPPABLE/gi, '#U')
+    .replace(/EVENT/gi, '#E')
     .replace(/BOX_BREAK/gi, '#B\n')
     .replace(/QUICKTEXT_ENABLE/g, '#QE')
     .replace(/QUICKTEXT_DISABLE/g, '#QD')
     .replace(/PERSISTENT/g, '#PE')
     .replace(/ITEM_ICON\(\"\\x(..)\"\)/g, '#I $1')
     .replace(/SFX\(\"\\x(..)\"\)/g, '#SFX $1')
+    .replace(/SHIFT\(\"\\x(..)\"\)/g, '#S $1')
     .replace(/\"\\n\"/g, '\n')
 }
 function defMsg(){
