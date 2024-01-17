@@ -115,10 +115,13 @@ var buttonMap = {
 }
 function toggleCommandList(){
   var div = document.getElementById("commandListWindow");
+  var b = document.getElementById("commandListButton");
   if(div.style.display == "none"){
-    div.style.display == "inline-block";
+    div.style.display = "inline-block";
+    b.innerHTML = "<h1>▲</h1>";
   }else{
-    div.style.display == "none";
+    div.style.display = "none";
+    b.innerHTML = "<h1>▼</h1>";
   }
 }
 
