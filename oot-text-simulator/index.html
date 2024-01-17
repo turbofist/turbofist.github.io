@@ -7,13 +7,27 @@
   <body>
   <tag autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/></tag>
   <div id="topWindows">
-    <div id="commandListWindow"><h1>Command list</h1><hr><h3>COLOR(color)</h3>
+    <div id="commandListWindow" style="display: none">
+      <h1>Command list</h1>
+      <hr>
+      <h3>COLOR(color)</h3>
       <p>The COLOR command is used in conjunction with any<br>of the available colors to color all text after the command.</p>
       <h3>DEFINE_MESSAGE(textId, type, yPos, nesMessage, gerMessage, fraMessage)</h3>
         <p>textId - The text ID of the text box, which can be used to later use that text box in game</p>
         <p>type - The type of textbox, this controls the background color of the text box.</p>
         <p>yPos - This controls where on screen the box appears.</p>
         <p>nesMessage, gerMessage, fraMessage - These all encompass the actual text along with macros for different things such as colored text and cutscene commands.</p>
+        <p></p>
+        <hr>
+        <h3>SHIFT(shift)</h3>
+        <p>Macro, shifts the x-position of the characters on that line, basically adds a bunch of spaces, takes a hexadecimal argument on the form:<br>
+        "SHIFT(\xNN)" where N is 0-F.</p>
+        <hr>
+        <h3>BOX_BREAK</h3>
+        <p>Creates a new text box, used in game to tell the game when to prompt the player to press A to go to the next message.</p>
+        <hr>
+        <h3>ITEM_ICON(icon)</h3>
+        <p>Takes the item ID in hex as argument, shows an item icon in the message box. Usage: ITEM_ICON("\xNN") where N is 0-F.</p>
     </div>
   <div class="rectangle" id="output"></div>
   </div>
