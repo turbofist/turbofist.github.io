@@ -142,7 +142,6 @@ body{
   border-radius: 20px;
   margin: auto;
 }
-
 #commandListWindow{
   top: 0;
   left: 0;
@@ -210,8 +209,8 @@ body{
   position: fixed;
 }
 .rectangle {
-    height: 120px;
-    width: 420px;
+    height: 97px;
+    width: 410px;
     background-color: #555;
     display: inline-block;
     border-radius: 20px;
@@ -273,7 +272,7 @@ textarea:focus{
   width: 64px;
   height: 64px;
   float:left;
-  margin-top: 20px;
+  margin-top: 15px;
   margin-left: -35px;
   padding-right: 16px;
   padding-bottom: 40px;
@@ -285,7 +284,7 @@ textarea:focus{
 #output {
   vertical-align: top;
   text-align: center;
-  line-height: 28px;
+  line-height: 24px;
   font-size: 20px;
   font-family: 'fot-chiaro_stdb', Arial;
   color: white;
@@ -301,6 +300,9 @@ textarea:focus{
   margin-left: 48px;
   position: absolute;
   text-wrap: nowrap;
+}
+#output a{
+  padding-top: 10px;
 }
 #arrow{
   margin-left:-24px;

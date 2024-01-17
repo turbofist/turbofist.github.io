@@ -124,7 +124,7 @@ function toggleCommandList(){
 
 function replaceShift(matched,p1,offset,string){
   var n = parseInt(p1, 16);
-  var n = Math.floor(n/5)-1;
+  var n = Math.floor(n/4)-1;
   var string = "";
   for(var i = 0; i<n; i++){
     string += " ";
@@ -143,7 +143,6 @@ function codeToIcon(matched,p1,offset,string){
   return iconMap[n];
 }
 function updateText(){
-  console.log("Update text");
   codeToScript();
   if(input.value)
     document.getElementById("output").innerHTML = input.value;
@@ -172,8 +171,8 @@ function updateText(){
     .replace(/\s*TEXTBOX_POS_MIDDLE,\s*/gi, '<div id="TEXTBOX_POS_MIDDLE"></div>')
     .replace(/\s*TEXTBOX_POS_BOTTOM,\s*/gi, '<div id="TEXTBOX_POS_BOTTOM"></div>')
     .replace(/\s*TEXTBOX_POS_VARIABLE\s*,/gi, '<div id="TEXTBOX_POS_VARIABLE"></div>')
-    .replace(/\s*SHIFT\(\"\\x(..)\"\)\s*/gi, replaceShift)
-    .replace(/\s*ITEM_ICON\(\"\\x(..)\"\)\s*/gi, codeToIcon)
+    .replace(/\s*ITEM_ICON\(\"\\x([a-fA-F0-9][a-fA-F0-9])\"\)\s*/gi, codeToIcon)
+    .replace(/\s*SHIFT\(\"\\x([a-fA-F0-9][a-fA-F0-9])\"\)\s*/gi, replaceShift)
     .replace(/\\(.*?)\\/gi, makeItalics)
     .replace(/\"/g, '')
  .replace(/\[C-Left\]|\[C-Right\]|\[C-Up\]|\[C-Down\]|\[A\]/gi, function(matched){return buttonMap[matched]});
@@ -206,7 +205,6 @@ function sfxTag(match, p1, offset, string){
   return "SFX\(\"\\x" + p1 + "\"\)";
 }
 function updateEditText(){
-  console.log("Update edit text.");
   var scriptInput = document.getElementById("otherinput");
   var codeOutput = document.getElementById("codeoutput");
   codeOutput.value = scriptInput.value
@@ -223,9 +221,9 @@ function updateEditText(){
     .replace(/\#QD/g, 'QUICKTEXT_ENABLE')
     .replace(/\#PE/g, 'PERSISTENT')
     .replace(/#E/g, 'EVENT')
-    .replace(/#S\s(..)/g, shiftTag)
-    .replace(/#SFX\s(..)/g, sfxTag)
-    .replace(/#I\s(..)/g, iconTag)
+    .replace(/#S\s([a-fA-F0-9][a-fA-F0-9])/g, shiftTag)
+    .replace(/#SFX\s([a-fA-F0-9][a-fA-F0-9])/g, sfxTag)
+    .replace(/#I\s([a-fA-F0-9][a-fA-F0-9])/g, iconTag)
     .replace(/#U/g, 'UNSKIPPABLE')
     .replace(/\\n/g, '')
     .replace(/\$N/g, '\\n')
@@ -233,7 +231,6 @@ function updateEditText(){
     updateText();
 }
 function codeToScript(){
-  console.log("Code to script.")
   var codeInput = document.getElementById("codeoutput");
   var scriptOutput = document.getElementById("otherinput");
   scriptOutput.value = codeInput.value
@@ -251,9 +248,9 @@ function codeToScript(){
     .replace(/QUICKTEXT_ENABLE/g, '#QE')
     .replace(/QUICKTEXT_DISABLE/g, '#QD')
     .replace(/PERSISTENT/g, '#PE')
-    .replace(/ITEM_ICON\(\"\\x(..)\"\)/g, '#I $1')
-    .replace(/SFX\(\"\\x(..)\"\)/g, '#SFX $1')
-    .replace(/SHIFT\(\"\\x(..)\"\)/g, '#S $1')
+    .replace(/ITEM_ICON\(\"\\x([a-fA-F0-9][a-fA-F0-9])\"\)/g, '#I $1')
+    .replace(/SFX\(\"\\x([a-fA-F0-9][a-fA-F0-9])\"\)/g, '#SFX $1')
+    .replace(/SHIFT\(\"\\x([a-fA-F0-9][a-fA-F0-9])\"\)/g, '#S $1')
     .replace(/\"\\n\"/g, '\n')
 }
 function defMsg(){
@@ -266,27 +263,35 @@ function defMsg(){
   switch(type.value){
       case "black":
         type = "TEXTBOX_TYPE_BLACK";
+        $("#output").css("background-color", "rgb\(85 85 85 \/10\%\)");
         break;
       case "blue":
         type = "TEXTBOX_TYPE_BLUE";
+        $("#output").css("background-color", "rgb\(0 0 136 \/10\%\)");
         break;
       case "wooden":
         type = "TEXTBOX_TYPE_WOODEN";
+        $("#output").css("background-color", "rgb\(99 72 45\)");
         break;
   }
       
+      $("#output").css("border", "0px solid white");
       switch(pos.value){
       case "top":
         pos = "TEXTBOX_POS_TOP";
+        $("#output").css("border-top", "1px solid white");
         break;
       case "variable":
         pos = "TEXTBOX_POS_VARIABLE";
+        $("#output").css("border-left", "1px solid white");
         break;
       case "middle":
         pos = "TEXTBOX_POS_MIDDLE";
+        $("#output").css("border-right", "1px solid white");
         break;
       case "bottom":
         pos = "TEXTBOX_POS_BOTTOM";
+        $("#output").css("border-bottom", "1px solid white");
         break;
       }
   defOutput.innerHTML = message + textId.value + ", " + type + ", " + pos + ",";
