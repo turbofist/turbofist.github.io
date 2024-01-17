@@ -130,15 +130,18 @@ function showColorInfo(){
     div.style.display == "none";
   }
 }
-  function replaceShift(matched,p1,offset,string){
-    var n = parseInt(p1, 16);
-    var n = Math.floor(n/5)-1;
-    var string = "";
-    for(var i = 0; i<n; i++){
-      string += " ";
-    }
-    return string;
- }
+function replaceShift(matched,p1,offset,string){
+  var n = parseInt(p1, 16);
+  var n = Math.floor(n/5)-1;
+  var string = "";
+  for(var i = 0; i<n; i++){
+    string += " ";
+  }
+  return string;
+}
+function makeItalics(matched,p1,offset,string){
+  return "<i>" + p1 + "</i>";
+}
 function boxBreak(matched,offset,string){
     return "<br><br><div class=\"boxbreak\">";
 }
@@ -177,6 +180,7 @@ function updateText(){
     .replace(/\s*BOX_BREAK_DELAYED\(.*?\)\s*/gi, boxBreak)
     .replace(/\s*BOX_BREAK\s*/gi, boxBreak)
     .replace(/\s*ITEM_ICON\(\"\\x(..)\"\)\s*/gi, codeToIcon)
+    .replace(/\\(.*?)\\/gi, makeItalics)
     .replace(/\"/g, '')
  .replace(/\[C-Left\]|\[C-Right\]|\[C-Up\]|\[C-Down\]|\[A\]/gi, function(matched){return buttonMap[matched]})
   if($("#TEXTBOX_TYPE_BLACK").length){
