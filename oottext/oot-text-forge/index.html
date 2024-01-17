@@ -76,7 +76,25 @@ BOX_BREAK
       </div>
     </div>
     <textarea id="otherinput" onkeyup="updateEditText()"></textarea>
-    <textarea id="codeoutput"></textarea>
+    <div id="outputcollection">
+      <button id="copybutton" onclick="copyToClipboard()">Copy code</button>
+      <div id="inputdiv">
+        <input type="text" id="textid" maxlength="6" placeholder="0x????" onkeyup="defMsg()">
+        <select class="selectbox" onchange="defMsg()" id="boxtype">Text box type
+          <option value="black">Black</option>
+          <option value="blue">Blue</option>
+          <option value="wooden">Wooden</option>
+        </select>
+        <select class="selectbox" onchange="defMsg()" id="boxpos">Text box type
+          <option value="top">Top</option>
+          <option value="middle">Middle</option>
+          <option value="bottom">Bottom</option>
+          <option value="variable">Variable</option>
+        </select>
+        </div>
+    <textarea id="codeoutput" onkeyup=""></textarea>
+  <div class="rectangle" id="defineoutput"></div>
+  </div>
     <div class="textinput"><textarea id="input" placeholder="Code here..." onkeyup="updateEditText()"></textarea></div>
   <div class="warning"><p>Do <b style="color: red">NOT</b> paste anything that isn't either written by you or taken from decomp's message_data.h in the input field, this could possibly result in unwanted behaviour.</p></div>
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>

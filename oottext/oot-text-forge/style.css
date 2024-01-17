@@ -7,8 +7,84 @@ body{
   background-color: #111;
 }
 
+.selectbox{
+  top: 30px;
+  position: absolute;
+  display: inline-block;
+  color: white;
+  background-color: #222;
+  border-radius: 5px;
+  width: 80px;
+  height: 30px;
+  font-family: 'fot-chiaro_stdb', Arial;
+  color: #EEE;
+  border: none;
+}
+
+#textid{
+  background-color: #333;
+  font-family: 'fot-chiaro_stdb', Arial;
+  color: #EEE;
+  width: 50px;
+  height: 20px;
+  display: inline-block;
+  margin-top: 34px;
+}
+
+#copybutton{
+  right: 330px;
+  bottom: 395px;
+  color: white;
+  background-color: black;
+  font-family: 'fot-chiaro_stdb', Arial;
+  border-radius: 5px;
+  border: none;
+  position: fixed;
+}
+
+#copybutton:hover{
+  background-color: #222;
+  cursor: pointer;
+  border: 1px solid white;
+}
+
+#defineoutput{
+  bottom: 339px;
+  right: 65px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  display: inline-block;
+  position: fixed;
+  height: 30px;
+  width: 600px;
+  padding: 5px;
+  font-family: 'fot-chiaro_stdb', Arial;
+  color: white;
+  text-wrap: nowrap;
+}
+
+#input{
+  display: none;
+}
+
+#inputdiv{
+  display: inline-block;
+  position: fixed;
+  bottom: 400px;
+  right: 265px;
+}
+
+#boxtype{
+  margin-left: 20px;
+}
+
+#boxpos{
+  margin-left: 120px;
+}
+
 #otherinput{
-  bottom: 100px;
+  bottom: 140px;
+  left: 20px;
   font-family: 'fot-chiaro_stdb', Arial;
   vertical-align: top;
   text-align: center;
@@ -23,18 +99,20 @@ body{
   padding-right: 12px;
   padding-bottom: 8px;
   padding-top: 14px;
-  margin-left: 500px;
-  position: absolute;
+  position: fixed;
   text-wrap: nowrap;
   height: 120px;
   width: 420px;
   background-color: #555;
-  display: inline-block;
   border-radius: 20px;
 }
+#outputcollection{
+  position: absolute;
+  display: inline-block;
+}
 #codeoutput{
-  bottom: 100px;
-  font-family: 'fot-chiaro_stdb', Arial;
+  bottom: 40px;
+  right: 64px;
   vertical-align: top;
   text-align: center;
   line-height: 28px;
@@ -44,19 +122,17 @@ body{
   text-align: left;
   white-space: pre-wrap;
   word-spacing: 5px;
-  padding-left: 64px;
-  padding-right: 12px;
-  padding-bottom: 8px;
-  padding-top: 14px;
-  margin-left: 1100px;
-  margin-bottom: -100px;
-  position: absolute;
+  margin-left: 4px;
+  margin-bottom: 0px;
+  position: fixed;
   text-wrap: nowrap;
   height: 300px;
-  width: 500px;
+  width: 612px;
   background-color: #555;
   display: inline-block;
   border-radius: 20px;
+  border-top-right-radius: 0px;
+  border-top-left-radius: 0px;
 }
 .inputrectangle{
   height: 120px;
@@ -180,10 +256,6 @@ textarea{
   background-color: #333;
   color: #AAA;
   resize: none;
-  position: fixed;
-  bottom: 30px;
-  left: 5px;
-  display: none;
 }
 textarea:focus{
   outline: none;

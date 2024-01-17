@@ -116,20 +116,12 @@ var buttonMap = {
 function toggleCommandList(){
   var div = document.getElementById("commandListWindow");
   if(div.style.display == "none"){
-    div.style.display == "inline-block";
+    div.style.display = "inline-block";
   }else{
-    div.style.display == "none";
+    div.style.display = "none";
   }
 }
 
-function showColorInfo(){
-  var div = $("commandListWindow");
-  if(div.style.display == "none"){
-    div.style.display == "block";
-  }else{
-    div.style.display == "none";
-  }
-}
 function replaceShift(matched,p1,offset,string){
   var n = parseInt(p1, 16);
   var n = Math.floor(n/5)-1;
@@ -147,15 +139,19 @@ function boxBreak(matched,offset,string){
 }
 function codeToIcon(matched,p1,offset,string){
   var n = parseInt(p1, 16);
-  console.log(n);
+  console.log(p1);
   return iconMap[n];
 }
 function updateText(){
+  console.log("Update text");
+  codeToScript();
   if(input.value)
     document.getElementById("output").innerHTML = input.value;
   //input.value = input.value.replace(/\n/g, '');
   document.getElementById("output").innerHTML = input.value.replace(/TWO_CHOICE|PERSISTENT|\\n/gi, function(matched){return mapObj[matched]})
     .replace(/\n/g, '')
+    .replace(/\s*BOX_BREAK_DELAYED\(.*?\)\s*/gi, boxBreak)
+    .replace(/\s*BOX_BREAK\s*/gi, boxBreak)
     .replace(/\s*COLOR\(RED\)\s*/gi, '<a style=\'color:red\'>')
     .replace(/\s*COLOR\(DEFAULT\)\s*/gi, '<a style=\'color:white\'>')
     .replace(/\s*COLOR\(ADJUSTABLE\)\s*/gi, '<a style=\'color:green\'>')
@@ -176,13 +172,11 @@ function updateText(){
     .replace(/\s*TEXTBOX_POS_MIDDLE,\s*/gi, '<div id="TEXTBOX_POS_MIDDLE"></div>')
     .replace(/\s*TEXTBOX_POS_BOTTOM,\s*/gi, '<div id="TEXTBOX_POS_BOTTOM"></div>')
     .replace(/\s*TEXTBOX_POS_VARIABLE\s*,/gi, '<div id="TEXTBOX_POS_VARIABLE"></div>')
-    .replace(/\s*SHIFT\(\\x(..)\)\s*/gi, replaceShift)
-    .replace(/\s*BOX_BREAK_DELAYED\(.*?\)\s*/gi, boxBreak)
-    .replace(/\s*BOX_BREAK\s*/gi, boxBreak)
+    .replace(/\s*SHIFT\(\"\\x(..)\"\)\s*/gi, replaceShift)
     .replace(/\s*ITEM_ICON\(\"\\x(..)\"\)\s*/gi, codeToIcon)
     .replace(/\\(.*?)\\/gi, makeItalics)
     .replace(/\"/g, '')
- .replace(/\[C-Left\]|\[C-Right\]|\[C-Up\]|\[C-Down\]|\[A\]/gi, function(matched){return buttonMap[matched]})
+ .replace(/\[C-Left\]|\[C-Right\]|\[C-Up\]|\[C-Down\]|\[A\]/gi, function(matched){return buttonMap[matched]});
   if($("#TEXTBOX_TYPE_BLACK").length){
     $("#output").css("background-color", "rgb\(85 85 85 \/10\%\)");
   }
@@ -203,16 +197,20 @@ function addQuotes(match, p1, offset, string){
   
 }
 function iconTag(match, p1, offset, string){
-  var n = parseInt(p1);
-  var h = n.toString(16);
-  return "ITEM_ICON\(\"\\x" + h + "\"\)";
+  return "ITEM_ICON\(\"\\x" + p1 + "\"\)";
+}
+function shiftTag(match, p1, offset, string){
+  return "SHIFT\(\"\\x" + p1 + "\"\)";
+}
+function sfxTag(match, p1, offset, string){
+  return "SFX\(\"\\x" + p1 + "\"\)";
 }
 function updateEditText(){
-  var input = document.getElementById("otherinput");
-  var codeoutput = document.getElementById("codeoutput");
-  codeoutput.value = input.value
-    .replace(/#B\n/g, 'BOX_BREAK ')
-    .replace(/\n/gi, '\"\\n\"\n')
+  console.log("Update edit text.");
+  var scriptInput = document.getElementById("otherinput");
+  var codeOutput = document.getElementById("codeoutput");
+  codeOutput.value = scriptInput.value
+  .replace(/#B\n/g, 'BOX_BREAK')
     .replace(/\$R/g, 'COLOR\(RED\)')
     .replace(/\$G/g, 'COLOR\(ADJUSTABLE\)')
     .replace(/\$B/g, 'COLOR\(BLUE\)')
@@ -221,11 +219,79 @@ function updateEditText(){
     .replace(/\$P/g, 'COLOR\(PURPLE\)')
     .replace(/\$Y/g, 'COLOR\(YELLOW\)')
     .replace(/\$W/g, 'COLOR\(DEFAULT\)')
-    .replace(/\#QE/g, 'QUICKTEXT_ENABLE ')
-    .replace(/\#QD/g, 'QUICKTEXT_ENABLE ')
-    .replace(/\#PE/g, 'PERSISTENT ')
-    .replace(/#B/g, 'BOX_BREAK ')
-    .replace(/#I (\d*)/g, iconTag)
+    .replace(/\#QE/g, 'QUICKTEXT_ENABLE')
+    .replace(/\#QD/g, 'QUICKTEXT_ENABLE')
+    .replace(/\#PE/g, 'PERSISTENT')
+    .replace(/#E/g, 'EVENT')
+    .replace(/#S\s(..)/g, shiftTag)
+    .replace(/#SFX\s(..)/g, sfxTag)
+    .replace(/#I\s(..)/g, iconTag)
+    .replace(/#U/g, 'UNSKIPPABLE')
+    .replace(/\\n/g, '')
     .replace(/\$N/g, '\\n')
-  updateText();
+    .replace(/\n/g, '\"\\n\"')
+    updateText();
+}
+function codeToScript(){
+  console.log("Code to script.")
+  var codeInput = document.getElementById("codeoutput");
+  var scriptOutput = document.getElementById("otherinput");
+  scriptOutput.value = codeInput.value
+    .replace(/COLOR\(RED\)/gi, '$R')
+    .replace(/COLOR\(DEFAULT\)/gi, '$W')
+    .replace(/COLOR\(ADJUSTABLE\)/gi, '$G')
+    .replace(/COLOR\(BLUE\)/gi, '$B')
+    .replace(/COLOR\(LIGHTBLUE\)/gi, '$L')
+    .replace(/COLOR\(PURPLE\)/gi, '$P')
+    .replace(/COLOR\(YELLOW\)/gi, '$Y')
+    .replace(/COLOR\(BLACK\)/gi, '$BL')
+    .replace(/UNSKIPPABLE/gi, '#U')
+    .replace(/BOX_BREAK/gi, '#B\n')
+    .replace(/QUICKTEXT_ENABLE/g, '#QE')
+    .replace(/QUICKTEXT_DISABLE/g, '#QD')
+    .replace(/PERSISTENT/g, '#PE')
+    .replace(/ITEM_ICON\(\"\\x(..)\"\)/g, '#I $1')
+    .replace(/SFX\(\"\\x(..)\"\)/g, '#SFX $1')
+    .replace(/\"\\n\"/g, '\n')
+}
+function defMsg(){
+  var textId = document.getElementById("textid");
+  var type = document.getElementById("boxtype");
+  var pos = document.getElementById("boxpos");
+  var defOutput = document.getElementById("defineoutput");
+  var message = "DEFINE_MESSAGE(";
+  
+  switch(type.value){
+      case "black":
+        type = "TEXTBOX_TYPE_BLACK";
+        break;
+      case "blue":
+        type = "TEXTBOX_TYPE_BLUE";
+        break;
+      case "wooden":
+        type = "TEXTBOX_TYPE_WOODEN";
+        break;
+  }
+      
+      switch(pos.value){
+      case "top":
+        pos = "TEXTBOX_POS_TOP";
+        break;
+      case "variable":
+        pos = "TEXTBOX_POS_VARIABLE";
+        break;
+      case "middle":
+        pos = "TEXTBOX_POS_MIDDLE";
+        break;
+      case "bottom":
+        pos = "TEXTBOX_POS_BOTTOM";
+        break;
+      }
+  defOutput.innerHTML = message + textId.value + ", " + type + ", " + pos + ",";
+}
+function copyToClipboard(){
+  var d = document.getElementById("defineoutput");
+  var c = document.getElementById("codeoutput").value;
+  c = c.replace(/(\"\\n\")/gi, '$1\n');
+  navigator.clipboard.writeText(d.innerHTML + '\n' + c + ",\n\"\"," + "\n\"\"\n" + ")");
 }
