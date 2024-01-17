@@ -115,13 +115,10 @@ var buttonMap = {
 }
 function toggleCommandList(){
   var div = document.getElementById("commandListWindow");
-  var b = document.getElementById("commandListButton");
   if(div.style.display == "none"){
-    div.style.display = "inline-block";
-    b.innerHTML = "<h1>▲</h1>";
+    div.style.display == "inline-block";
   }else{
-    div.style.display = "none";
-    b.innerHTML = "<h1>▼</h1>";
+    div.style.display == "none";
   }
 }
 
@@ -164,7 +161,6 @@ function updateText(){
     .replace(/\s*COLOR\(PURPLE\)\s*/gi, '<a style=\'color:purple\'>')
     .replace(/\s*COLOR\(YELLOW\)\s*/gi, '<a style=\'color:yellow\'>')
     .replace(/\s*COLOR\(BLACK\)\s*/gi, '<a style=\'color:black\'>')
-    .replace(/\"/g, '')
     .replace(/DEFINE_MESSAGE\(.*? /gi, '')
     .replace(/\s*QUICKTEXT_ENABLE\s*/gi,'')
     .replace(/\s*QUICKTEXT_DISABLE\s*/gi,'')
@@ -177,10 +173,11 @@ function updateText(){
     .replace(/\s*TEXTBOX_POS_MIDDLE,\s*/gi, '<div id="TEXTBOX_POS_MIDDLE"></div>')
     .replace(/\s*TEXTBOX_POS_BOTTOM,\s*/gi, '<div id="TEXTBOX_POS_BOTTOM"></div>')
     .replace(/\s*TEXTBOX_POS_VARIABLE\s*,/gi, '<div id="TEXTBOX_POS_VARIABLE"></div>')
-    .replace(/SHIFT\(\\x(..)\)/gi, replaceShift)
-    .replace(/BOX_BREAK_DELAYED\(.*?\)/gi, boxBreak)
-    .replace(/BOX_BREAK/gi, boxBreak)
-    .replace(/ITEM_ICON\(\\x(..)\)/gi, codeToIcon)
+    .replace(/\s*SHIFT\(\\x(..)\)\s*/gi, replaceShift)
+    .replace(/\s*BOX_BREAK_DELAYED\(.*?\)\s*/gi, boxBreak)
+    .replace(/\s*BOX_BREAK\s*/gi, boxBreak)
+    .replace(/\s*ITEM_ICON\(\"\\x(..)\"\)\s*/gi, codeToIcon)
+    .replace(/\"/g, '')
  .replace(/\[C-Left\]|\[C-Right\]|\[C-Up\]|\[C-Down\]|\[A\]/gi, function(matched){return buttonMap[matched]})
   if($("#TEXTBOX_TYPE_BLACK").length){
     $("#output").css("background-color", "rgb\(85 85 85 \/10\%\)");

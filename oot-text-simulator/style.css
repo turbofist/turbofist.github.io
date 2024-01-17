@@ -141,6 +141,10 @@ textarea:focus{
   padding-right: 16px;
   padding-bottom: 40px;
 }
+.ico img{
+  width: 64px;
+  height: 64px;
+}
 #output {
   vertical-align: top;
   text-align: center;
@@ -159,6 +163,7 @@ textarea:focus{
   padding-top: 14px;
   margin-left: 48px;
   position: absolute;
+  text-wrap: nowrap;
 }
 #arrow{
   margin-left:-24px;
