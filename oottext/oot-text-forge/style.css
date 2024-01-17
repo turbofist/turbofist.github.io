@@ -6,6 +6,67 @@
 body{
   background-color: #111;
 }
+
+#otherinput{
+  bottom: 100px;
+  font-family: 'fot-chiaro_stdb', Arial;
+  vertical-align: top;
+  text-align: center;
+  line-height: 28px;
+  font-size: 20px;
+  font-family: 'fot-chiaro_stdb', Arial;
+  color: white;
+  text-align: left;
+  white-space: pre-wrap;
+  word-spacing: 5px;
+  padding-left: 64px;
+  padding-right: 12px;
+  padding-bottom: 8px;
+  padding-top: 14px;
+  margin-left: 500px;
+  position: absolute;
+  text-wrap: nowrap;
+  height: 120px;
+  width: 420px;
+  background-color: #555;
+  display: inline-block;
+  border-radius: 20px;
+}
+#codeoutput{
+  bottom: 100px;
+  font-family: 'fot-chiaro_stdb', Arial;
+  vertical-align: top;
+  text-align: center;
+  line-height: 28px;
+  font-size: 20px;
+  font-family: 'fot-chiaro_stdb', Arial;
+  color: white;
+  text-align: left;
+  white-space: pre-wrap;
+  word-spacing: 5px;
+  padding-left: 64px;
+  padding-right: 12px;
+  padding-bottom: 8px;
+  padding-top: 14px;
+  margin-left: 1100px;
+  margin-bottom: -100px;
+  position: absolute;
+  text-wrap: nowrap;
+  height: 300px;
+  width: 500px;
+  background-color: #555;
+  display: inline-block;
+  border-radius: 20px;
+}
+.inputrectangle{
+  height: 120px;
+  width: 420px;
+  background-color: #555;
+  display: inline-block;
+  border-radius: 20px;
+  margin: auto;
+}
+
 #commandListWindow{
   top: 0;
   left: 0;
@@ -122,7 +183,7 @@ textarea{
   position: fixed;
   bottom: 30px;
   left: 5px;
-  display: inline-block;
+  display: none;
 }
 textarea:focus{
   outline: none;

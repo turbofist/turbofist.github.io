@@ -1,4 +1,4 @@
-var input = document.getElementById("input");
+var input = document.getElementById("codeoutput");
 if(input){
   input.addEventListener("keyup", updateText);
 }
@@ -198,4 +198,34 @@ function updateText(){
   else if($("#TEXTBOX_POS_BOTTOM").length){
     $("#output").css("border-bottom", "2px solid white");
   }
+}
+function addQuotes(match, p1, offset, string){
+  
+}
+function iconTag(match, p1, offset, string){
+  var n = parseInt(p1);
+  var h = n.toString(16);
+  return "ITEM_ICON\(\"\\x" + h + "\"\)";
+}
+function updateEditText(){
+  var input = document.getElementById("otherinput");
+  var codeoutput = document.getElementById("codeoutput");
+  codeoutput.value = input.value
+    .replace(/#B\n/g, 'BOX_BREAK ')
+    .replace(/\n/gi, '\"\\n\"\n')
+    .replace(/\$R/g, 'COLOR\(RED\)')
+    .replace(/\$G/g, 'COLOR\(ADJUSTABLE\)')
+    .replace(/\$B/g, 'COLOR\(BLUE\)')
+    .replace(/\$L/g, 'COLOR\(LIGHTBLUE\)')
+    .replace(/\$BL/g, 'COLOR\(BLACK\)')
+    .replace(/\$P/g, 'COLOR\(PURPLE\)')
+    .replace(/\$Y/g, 'COLOR\(YELLOW\)')
+    .replace(/\$W/g, 'COLOR\(DEFAULT\)')
+    .replace(/\#QE/g, 'QUICKTEXT_ENABLE ')
+    .replace(/\#QD/g, 'QUICKTEXT_ENABLE ')
+    .replace(/\#PE/g, 'PERSISTENT ')
+    .replace(/#B/g, 'BOX_BREAK ')
+    .replace(/#I (\d*)/g, iconTag)
+    .replace(/\$N/g, '\\n')
+  updateText();
 }
