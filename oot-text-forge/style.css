@@ -159,6 +159,8 @@ body{
   padding-right: 8px;
   border-radius: 15px;
   overflow: auto;
+  position: relative;
+  z-index: 10;
 }
 #commandListButton{
   background-color: #333;
@@ -171,6 +173,8 @@ body{
   height: 40px;
   cursor: pointer;
   padding-right: 30px;
+  position: relative;
+  z-index: 10;
 }
 #commandListButton:hover{
   background-color: #222;
@@ -217,7 +221,7 @@ body{
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #222;
+  background: #444;
 }
 ::-webkit-scrollbar-thumb {
   background: #333;
