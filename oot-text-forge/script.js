@@ -225,7 +225,7 @@ function updateEditText(){
     .replace(/\$Y/g, 'COLOR\(YELLOW\)')
     .replace(/\$W/g, 'COLOR\(DEFAULT\)')
     .replace(/\#QE/g, 'QUICKTEXT_ENABLE')
-    .replace(/\#QD/g, 'QUICKTEXT_ENABLE')
+    .replace(/\#QD/g, 'QUICKTEXT_DISABLE')
     .replace(/\#PE/g, 'PERSISTENT')
     .replace(/#E/g, 'EVENT')
     .replace(/#S\s([a-fA-F0-9][a-fA-F0-9])/g, shiftTag)
