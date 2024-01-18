@@ -101,7 +101,8 @@ body{
   padding-top: 14px;
   position: fixed;
   text-wrap: nowrap;
-  height: 170px;
+  max-height: 200px;
+  height: 180px;
   width: 520px;
   background-color: #555;
   border-radius: 20px;
@@ -247,6 +248,7 @@ body{
   height: 75%;
   box-shadow: 3px 3px 5px black;
   border: 3px solid #FFF;
+  z-index: 11;
 }
 textarea{
   width: 480px;
@@ -258,7 +260,7 @@ textarea{
   border-radius: 10px;
   background-color: #333;
   color: #AAA;
-  resize: none;
+  resize: horizontal;
 }
 textarea:focus{
   outline: none;
