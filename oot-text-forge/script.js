@@ -114,14 +114,21 @@ var buttonMap = {
   "\[C-Right\]":"►"
 }
 function toggleCommandList(){
-  var div = document.getElementById("commandListWindow");
+  var div = document.getElementById("infowindow");
   if(div.style.display == "none"){
     div.style.display = "inline-block";
   }else{
     div.style.display = "none";
   }
 }
-
+function openFaq(){
+  var faqDiv = document.getElementById("commandListWindow");
+  if(faqDiv.style.display == "none"){
+    faqDiv.style.display = "inline-block";
+  }else{
+    faqDiv.style.display = "none";
+  }
+}
 function replaceShift(matched,p1,offset,string){
   var n = parseInt(p1, 16);
   var n = Math.floor(n/4)-1;
